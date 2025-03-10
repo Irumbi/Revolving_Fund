@@ -7,7 +7,7 @@ from PIL import Image
 import io
 
 # Set the path to the Revolving_Fund database
-db_path = r"C:\Users\lenovo\OneDrive\Desktop\basics c_part 1\Basic Python\Revolving_Fund.db"
+db_path = 'Revolving_Fund.db'
 
 # Function to initialize the database and create the table if it doesn't exist
 def create_db():
