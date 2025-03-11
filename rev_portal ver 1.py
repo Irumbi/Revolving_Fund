@@ -175,20 +175,18 @@ def get_started():
     """)
 
     # Add a picture gallery section
-    st.subheader("Gallery: Inspiration on Money Management")
+    st.subheader("learn more about Money Management")
     
     # Create a container to hold the image gallery
     gallery = st.container()
     with gallery:
         # You can add a list of image paths (you can upload images or use URLs)
         image_paths = [
-            "https://www.resolvefs.co.uk/wp-content/uploads/2021/04/Funds-1.png",  # Replace with actual image URLs or local file paths
-            "https://www.resolvefs.co.uk/wp-content/uploads/2021/04/Funds-1.png",
-            "https://www.resolvefs.co.uk/wp-content/uploads/2021/04/Funds-1.png"
+            "https://www.resolvefs.co.uk/wp-content/uploads/2021/04/Funds-1.png"  # Replace with actual image URLs or local file paths
         ]
 
         # Display the images in a nice layout
-        st.write("#### Browse our gallery to learn more about managing funds")
+        st.write("#### gallery Coming soon..")
         cols = st.columns(3)  # Divide the space into 3 columns for the gallery
         for i, col in enumerate(cols):
             if i < len(image_paths):
@@ -471,15 +469,7 @@ def admin_approval():
         st.error("Invalid admin password. Access denied.")
 
 # Function for the "Contact Us" page
-def contact_us():
-    st.title("Contact Us")
-    st.write("""
-    For any inquiries or support, please contact our team at:
-    - Email: support@revolvingfund.com
-    - Phone: +123-456-7890
-    """)
 
-# Function to approve the loan and update its status in the database
 # Function to approve the loan and update its status in the database
 def approve_loan(loan_id, status):
     conn = sqlite3.connect(db_path)
@@ -493,8 +483,110 @@ def approve_loan(loan_id, status):
     conn.close()
 
 # Add the admin approval page to the sidebar menu
-menu = ["Get Started", "Apply for a Loan", "View Total_Loan_Request", "Check Loan Limit", "Contact Us", "Admin Approval"]
+menu = ["Get Started", "Check Loan Limit","Apply for a Loan", "View Total_Loan_Request", "Admin Approval","Contact Us"]
 selection = st.sidebar.radio("Navigate", menu)
+
+
+def contact_us():
+    st.title("📞 Contact Us 📞")
+    
+    st.write("""
+    For any inquiries or support, please contact our team at:
+    - Email: AgencyServices@madison.co.ke
+    - Contact Centre: 0709 922 000
+    - WhatsApp: 0110 941 061
+    - SMS Number: 20286 USSD: *828#
+    - Madison House Upper Hill Close,
+    - P.O Box 41163-00100, Nairobi
+    - madison@madison.co.ke
+    """)
+    
+    # Set background color of the page to a dimmer shade using CSS
+    st.markdown("""
+    <style>
+        body {
+            background-color: #f7f7f7;  /* Light grey background */
+            color: #333333;  /* Dark text for contrast */
+        }
+        .title {
+            text-align: center;
+        }
+        .contact-info {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .contact-header {
+            color: #007BFF;  /* Blue color for headers */
+            font-size: 1.5em;
+        }
+        .contact-item {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .contact-link {
+            color: #007BFF; /* Links color */
+            text-decoration: none;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .button-style {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .button-style:hover {
+            background-color: #45a049;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Contact Information Section
+    st.markdown("<div class='contact-info'>", unsafe_allow_html=True)
+
+    st.markdown("<div class='contact-header'>For any inquiries or support, please contact our team:</div>", unsafe_allow_html=True)
+
+    # Contact details with links
+    st.markdown("""
+    <div class='contact-item'>
+        <strong>📧 Email:</strong> 
+        <a href='mailto:AgencyServices@madison.co.ke' class='contact-link'>AgencyServices@madison.co.ke</a>
+    </div>
+    <div class='contact-item'>
+        <strong>☎️ Contact Centre:</strong> 
+        <a href='tel:+254709922000' class='contact-link'>0709 922 000</a>
+    </div>
+    <div class='contact-item'>
+        <strong>💬 WhatsApp:</strong> 
+        <a href='https://wa.me/254110941061' target='_blank' class='contact-link'>0110 941 061</a>
+    </div>
+    <div class='contact-item'>
+        <strong>📱 SMS Number:</strong> 
+        <a href='tel:*828#' class='contact-link'>20286 USSD: *828#</a>
+    </div>
+    <div class='contact-item'>
+        <strong>🏢 Location:</strong> Madison House Upper Hill Close, P.O Box 41163-00100, Nairobi
+    </div>
+    <div class='contact-item'>
+        <strong>📧 General Email:</strong> 
+        <a href='mailto:madison@madison.co.ke' class='contact-link'>madison@madison.co.ke</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    # Send us an email button (removed query parameters handling, just uses mailto link)
+    st.markdown("""
+    <div style='margin-top: 20px;'>
+        <a href='mailto:AgencyServices@madison.co.ke'>
+            <button class='button-style'>Send us an Email</button>
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
 
 # Render the selected page
 if selection == "Admin Approval":
