@@ -488,24 +488,13 @@ selection = st.sidebar.radio("Navigate", menu)
 
 
 def contact_us():
-    st.title("📞 Contact Us 📞")
-    
-    st.write("""
-    For any inquiries or support, please contact our team at:
-    - Email: AgencyServices@madison.co.ke
-    - Contact Centre: 0709 922 000
-    - WhatsApp: 0110 941 061
-    - SMS Number: 20286 USSD: *828#
-    - Madison House Upper Hill Close,
-    - P.O Box 41163-00100, Nairobi
-    - madison@madison.co.ke
-    """)
+    st.title("📞 Contact Us")
     
     # Set background color of the page to a dimmer shade using CSS
     st.markdown("""
     <style>
         body {
-            background-color: #f7f7f7;  /* Light grey background */
+            background-color: #384646;  /* Light grey background */
             color: #333333;  /* Dark text for contrast */
         }
         .title {
