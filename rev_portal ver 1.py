@@ -574,7 +574,11 @@ def contact_us():
 
 
 # Add the admin approval page to the sidebar menu
-menu = ["Get Started", "Check Loan Limit","Apply for a Loan", "View Total_Loan_Request", "Admin Approval","Contact Us"]
+menu = ["Get Started", "Check Loan Limit","Apply for a Loan", 
+        "View Total_Loan_Request", "Admin Approval"]
+
+# Sidebar for the Contact Us option
+
 
 # Custom CSS to style the navigation bar
 menu_css = """
@@ -618,6 +622,10 @@ st.markdown(menu_css, unsafe_allow_html=True)
 
 selection = st.radio("", menu, horizontal=True)
 
+st.sidebar.title("Menu")
+sidebar_selection = st.sidebar.radio("Contact Us", ["Contact Us"])
+
+
 # Render the selected page
 if selection == "Admin Approval":
     admin_approval()
@@ -629,5 +637,6 @@ elif selection == "View Total_Loan_Request":
     Total_Loan_Request()
 elif selection == "Check Loan Limit":
     check_loan_limit()
-elif selection == "Contact Us":
+
+if sidebar_selection == "Contact Us":
     contact_us()
