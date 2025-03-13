@@ -578,7 +578,7 @@ menu = ["Get Started", "Check Loan Limit","Apply for a Loan",
         "View Total_Loan_Request", "Admin Approval"]
 
 # Sidebar for the Contact Us option
-
+st.sidebar.title("Menu")
 
 # Custom CSS to style the navigation bar
 menu_css = """
@@ -622,8 +622,8 @@ st.markdown(menu_css, unsafe_allow_html=True)
 
 selection = st.radio("", menu, horizontal=True)
 
-st.sidebar.title("Menu")
-sidebar_selection = st.sidebar.radio("Contact Us", ["Contact Us"])
+
+sidebar_selection = st.sidebar.radio("", ["Contact Us"])
 
 
 # Render the selected page
