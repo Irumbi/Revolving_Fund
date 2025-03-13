@@ -482,10 +482,6 @@ def approve_loan(loan_id, status):
     conn.commit()
     conn.close()
 
-# Add the admin approval page to the sidebar menu
-menu = ["Get Started", "Check Loan Limit","Apply for a Loan", "View Total_Loan_Request", "Admin Approval","Contact Us"]
-selection = st.sidebar.radio("Navigate", menu)
-
 
 def contact_us():
     st.title("📞 Contact Us")
@@ -576,6 +572,51 @@ def contact_us():
     </div>
     """, unsafe_allow_html=True)
 
+
+# Add the admin approval page to the sidebar menu
+menu = ["Get Started", "Check Loan Limit","Apply for a Loan", "View Total_Loan_Request", "Admin Approval","Contact Us"]
+
+# Custom CSS to style the navigation bar
+menu_css = """
+    <style>
+    .css-1d391kg {
+        display: flex;
+        justify-content: center;
+        background-color: #3498db;  /* Bright Blue */
+        padding: 10px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .stRadio > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .stRadio > div > label {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 20px;
+        color: white;
+        background-color: #3498db;  /* Bright Blue */
+        transition: background-color 0.3s ease;
+    }
+    .stRadio > div > label:hover {
+        background-color: #1abc9c;  /* Lively Teal */
+    }
+    .stRadio > div > div > div {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    </style>
+"""
+
+# Apply the CSS styles to the app
+st.markdown(menu_css, unsafe_allow_html=True)
+
+selection = st.radio("", menu, horizontal=True)
 
 # Render the selected page
 if selection == "Admin Approval":
